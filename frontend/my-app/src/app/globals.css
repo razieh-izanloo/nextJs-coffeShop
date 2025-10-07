@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-chocolate-50: #f7e2c3;
+  --color-chocolate-100: #f0d9b4;
+  --color-chocolate-200: #f5e1be;
+  --color-chocolate-300: #b9825e;
+  --color-chocolate-500: #985122;
+  --color-chocolate-600: #58402e;
+  --color-chocolate-700: #3e2413;
+}
+
+@layer components {
+  .btn {
+    @apply p-2.5 rounded-[6px] block cursor-pointer;
+  }
+  .btn-chocolate-500 {
+    @apply bg-chocolate-500 text-white;
+  }
+  .btn-chocolate-500:hover {
+    @apply bg-chocolate-300;
+  }
+  h1 {
+    @apply text-4xl font-bold my-2.5;
+  }
+  .input-textField {
+    @apply py-3 px-1.5 rounded-[6px] w-full border border-chocolate-300 bg-chocolate-50 outline-0;
+  }
+}
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+/* @media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+} */
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Regular.woff2") format("woff2"),
+    url("/fonts/Montserrat/Montserrat-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/Montserrat/Montserrat-Bold.woff2") format("woff2"),
+    url("/fonts/Montserrat/Montserrat-Bold.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+}
+
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px #fdebd0 inset !important;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
