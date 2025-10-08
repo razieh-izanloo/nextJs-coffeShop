@@ -1,17 +1,18 @@
-export async function middlewareAuth() {
+export async function middlewareAuth(req) {
   let strCookie = "";
   req.cookies.getAll().forEach((item) => {
     strCookie += `${item.name}=${item.value}; `;
   });
 
-  const { data } = fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/profile`, {
+  
+  const { data } = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/user/profile`, {
     method: "GET",
     credentials: "include",
     headers: {
       Cookie: strCookie,
     },
   }).then((res) => res.json());
-
   const { user } = data || {};
+  console.log(user, process.env.NEXT_PUBLIC_API_URL)
   return user;
 }

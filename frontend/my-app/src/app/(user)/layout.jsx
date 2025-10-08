@@ -1,7 +1,7 @@
 import { Toaster } from "react-hot-toast";
-import Providers from "./providers";
-import "./globals.css";
-
+import Providers from "../providers";
+import "../globals.css";
+import { Header } from "@/components/header";
 
 export const metadata = {
   title: "Create Next App",
@@ -11,10 +11,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body
-      >
+      <body>
         <Providers>
           <Toaster />
+          <Header />
           {children}
         </Providers>
       </body>
