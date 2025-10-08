@@ -13,7 +13,7 @@ const CompleteProfile = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
-console.log(error, name)
+
   const { isPending, mutateAsync } = useMutation({
     mutationFn: completeProfile,
   });
