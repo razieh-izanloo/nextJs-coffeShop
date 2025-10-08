@@ -20,7 +20,7 @@ const CompleteProfile = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (!name || !email.value || !/^\S+@\S+\.\S+$/.test(email.value))
+    if (!name || !email || !/^\S+@\S+\.\S+$/.test(email))
       setError("Field is invalid");
     else {
       try {
