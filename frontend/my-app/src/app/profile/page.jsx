@@ -1,7 +1,9 @@
 const ProfilePage = () => {
     return (
         <>
-        admin page
+        profile page
         </>
     )
 }
+
+export default ProfilePage;
