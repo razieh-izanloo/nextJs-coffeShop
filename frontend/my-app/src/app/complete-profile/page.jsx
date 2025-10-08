@@ -13,14 +13,15 @@ const CompleteProfile = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
-
+console.log(error, name)
   const { isPending, mutateAsync } = useMutation({
     mutationFn: completeProfile,
   });
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (!name || !email) setError("Please fill in the blank field");
+    if (!name || !email.value || !/^\S+@\S+\.\S+$/.test(email.value))
+      setError("Field is invalid");
     else {
       try {
         const { message } = await mutateAsync({ name, email });
@@ -29,6 +30,7 @@ const CompleteProfile = () => {
       } catch (err) {
         toast.error(err?.response?.data);
       }
+      if (error) setError("");
     }
   };
 
@@ -38,25 +40,25 @@ const CompleteProfile = () => {
         <Steam />
         <Image src="/images/cup.png" alt="cup image" width="150" height="150" />
       </div>
-      <strong className="text-chocolate-100 text-4xl font-bold my-2.5">
+      <strong className="text-chocolate-100 text-4xl font-bold mb-5">
         Cofforia
       </strong>
-      <h1 className="text-chocolate-100 mb-5 text-3xl">CompleteP profile</h1>
       <div className="bg-chocolate-200 w-fit p-5 rounded-[8px]">
+      <h1 className="text-chocolate-300 text-2xl">Complete profile</h1>
         <form className="flex flex-col gap-3" onSubmit={submitHandler}>
           <TextField
             name="name"
             label="Name and surname"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            error={error && !name}
+            error={(error && !name) && error}
           />
           <TextField
             name="email"
             label="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            error={error && !email}
+            error={((error && name) || !email) && error}
           />
           <button
             type="submit"
