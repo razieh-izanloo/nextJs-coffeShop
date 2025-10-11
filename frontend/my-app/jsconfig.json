@@ -23,6 +23,7 @@
       "@/services/*":["services/*"],
       "@/components/*":["components/*"],
       "@/hooks/*":["hooks/*"],
+      "@/utils/*":["utils/*"],
     },
   },
   "include": ["next-env.d.js", "**/*.js", "**/*.jsx", ".next/types/**/*.js"],

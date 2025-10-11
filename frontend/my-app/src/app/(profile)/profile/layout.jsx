@@ -1,7 +1,7 @@
 import { Toaster } from "react-hot-toast";
 import Providers from "../../providers";
 import "../../globals.css";
-import { Header } from "@/components/header";
+import { SideBar } from "./sideBar";
 
 export const metadata = {
   title: "Profile",
@@ -10,12 +10,17 @@ export const metadata = {
 
 export default function ProfileLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" dir="ltr">
+      <body
+      >
         <Providers>
           <Toaster />
-          <Header />
-          {children}
+          <div className="grid grid-cols-5 bg-white h-screen">
+            <div className="col-span-1 bg-gray-100 overflow-y-auto p-4">
+              <SideBar />
+            </div>
+            <div className="col-span-4 overflow-y-auto p-4">{children}</div>
+          </div>
         </Providers>
       </body>
     </html>

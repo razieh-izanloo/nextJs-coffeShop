@@ -1,12 +1,11 @@
 import { NextResponse } from "next/server";
-import { middlewareAuth } from "utils/middlewareAuth";
+import { middlewareAuth } from "@/utils/middlewareAuth";
 
 export async function middleware(req) {
   const pathname = req.nextUrl.pathname;
 
   if (pathname.startsWith("/profile")) {
     const user = await middlewareAuth(req);
-    console.log("userrrrrrrrr", user)
     if (!user) return NextResponse.redirect(new URL("/auth", req.url));
   }
 
