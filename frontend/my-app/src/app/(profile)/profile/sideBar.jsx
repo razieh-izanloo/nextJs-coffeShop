@@ -1,11 +1,12 @@
 "use client";
 
-// import { logout } from "@/services/authServices";
+import { logout } from "@/services/authServices";
 import Link from "next/link";
 
 export const SideBar = () => {
+
   const logoutHandler = async () => {
-    // await logout();
+    await logout();
     // localStorage.removeItem("userInfo");
     // localStorage.removeItem("cartItems");
     // localStorage.removeItem("token");
