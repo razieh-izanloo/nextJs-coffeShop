@@ -1,6 +1,6 @@
 "use client";
-import { useGetUser } from "@/hooks/useAuth";
 import Link from "next/link";
+import { useGetUser } from "@/hooks/useAuth";
 
 export const Header = () => {
   const { data, isLoading, error } = useGetUser();
@@ -10,7 +10,9 @@ export const Header = () => {
     <ul className={isLoading ? "blur-sm opacity-70" : ""}>
       <li>{data ? <Link href="/profile">{user.name}</Link> : "ورود"}</li>
       <li>خانه</li>
-      <li>محصولات</li>
+      <li>
+        <Link href="/products">محصولات</Link>
+      </li>
       <li>
         <Link href="/profile">پروفایل</Link>
       </li>
