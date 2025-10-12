@@ -11,8 +11,8 @@ export async function middleware(req) {
 
   if (pathname.startsWith("/admin")) {
     const user = await middlewareAuth(req);
-    if (user && user.role !== "admin")
-      return NextResponse.redirect(new URL("/", req.url));
+    if (!user || user.role !== "ADMIN")
+      return NextResponse.redirect(new URL("/auth", req.url));
   }
 }
 

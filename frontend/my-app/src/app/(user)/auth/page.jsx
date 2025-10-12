@@ -70,7 +70,7 @@ const AuthPage = () => {
         otp,
       });
       toast.success("welcome!");
-      router.push(user.isActive ? "/homePage" : "/complete-profile");
+      router.push(user.isActive ? "/" : "/complete-profile");
     } catch (err) {
       toast.error("Invalid confirm code!");
     }
