@@ -3,17 +3,24 @@ import Link from "next/link";
 import { getCategories } from "@/services/categoryServices";
 import { getProducts } from "@/services/productServices";
 import { toLocaleDateString } from "@/utils/toLocaleDate";
+import { toStringCookies } from "@/utils/toStringCookies";
 import { CategorySideBar } from "./categorySideBar";
 import { AddToCart } from "./[slug]/addToCart";
+import { LikeProduct } from "./productLike";
+import { cookies } from "next/headers";
 
 export const dynamic = "force-dynamic"; // or use fetch with "no-store"
 
 const ProdutcsPage = async ({ searchParams }) => {
   const params = await searchParams;
+
+  const cookieStore = cookies();
+  const strCookies = toStringCookies(cookieStore);
+
   // const { products } = await getProducts(queryString.stringify(params));
   // const { categories } = await getCategories();
   //or:
-  const productsPromise = getProducts(queryString.stringify(params));
+  const productsPromise = getProducts(queryString.stringify(params), strCookies);
   const categoryPromise = getCategories();
   const [{ products }, { categories }] = await Promise.all([
     productsPromise,
@@ -46,7 +53,7 @@ const ProdutcsPage = async ({ searchParams }) => {
                   >
                     مشاهده محصول
                   </Link>
-                  {/* <LikeProduct product={product} /> */}
+                  <LikeProduct product={product} />
                   <AddToCart product={product} />
                 </div>
               );
