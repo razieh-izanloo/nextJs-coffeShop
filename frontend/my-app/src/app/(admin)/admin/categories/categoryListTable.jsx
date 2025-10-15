@@ -1,31 +1,31 @@
-import { productListTableTHeads } from "@/constants/tableHeads";
 import Link from "next/link";
-import { RiEdit2Line } from "react-icons/ri";
-import { HiEye, HiTrash } from "react-icons/hi";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
+import { HiEye, HiTrash } from "react-icons/hi";
 import { useQueryClient } from "@tanstack/react-query";
-import { useRemoveProduct } from "@/hooks/admin/useProducts";
+import { RiEdit2Line } from "react-icons/ri";
+import { useRemoveCategory } from "@/hooks/admin/useCategories";
+import { categoryListTableTHeads } from "@/constants/tableHeads";
 
-export const  ProductListTable =({ products })=> {
-  const { mutateAsync } = useRemoveProduct();
+export const CategoryListTable = ({ categories }) => {
+  const { mutateAsync } = useRemoveCategory();
   const queryClient = useQueryClient();
 
-  const removeProductHandler = async (id) => {
+  const removeCategoryHandler = async (id) => {
     try {
       const { message } = await mutateAsync(id);
       toast.success(message);
-      queryClient.invalidateQueries({ queryKey: ["get-products"] });
+      queryClient.invalidateQueries({ queryKey: ["get-categories"] });
     } catch (error) {
       toast.error(error?.respone?.data?.message);
     }
   };
+
   return (
     <div className="shadow-sm overflow-auto my-8">
       <table className="border-collapse table-auto w-full min-w-[800px] text-sm">
         <thead>
           <tr>
-            {productListTableTHeads.map((item) => {
+            {categoryListTableTHeads.map((item) => {
               return (
                 <th className="whitespace-nowrap table__th" key={item.id}>
                   {item.label}
@@ -35,29 +35,29 @@ export const  ProductListTable =({ products })=> {
           </tr>
         </thead>
         <tbody>
-          {products.map((product, index) => {
+          {categories.map((category, index) => {
             return (
-              <tr key={product._id}>
+              <tr key={category._id}>
                 <td className="table__td">{index + 1}</td>
                 <td className="table__td  whitespace-nowrap font-bold">
-                  {product.title}
+                  {category.title}
                 </td>
-                <td className="table__td">{product.category.title}</td>
-                <td className="table__td">{product.price}</td>
-                <td className="table__td">{product.discount}</td>
-                <td className="table__td">{product.offPrice}</td>
-                <td className="table__td">{product.countInStock}</td>
+                <td className="table__td">{category.description}</td>
+                <td className="table__td">{category.englishTitle}</td>
+                <td className="table__td">
+                  <span className="badge badge--secondary">
+                    {category.type}
+                  </span>
+                </td>
                 <td className="table__td font-bold text-lg">
                   <div className="flex items-center gap-x-4">
-                    <Link href={`/admin/products/${product._id}`}>
+                    <Link href={`/admin/categories/${category._id}`}>
                       <HiEye className="text-primary-900 w-6 h-6" />
                     </Link>
-                    <button 
-                    onClick={() => removeProductHandler(product._id)}
-                    >
+                    <button onClick={() => removeCategoryHandler(category._id)}>
                       <HiTrash className="text-rose-600 w-6 h-6" />
                     </button>
-                    <Link href={`/admin/products/edit/${product._id}`}>
+                    <Link href={`/admin/categories/edit/${category._id}`}>
                       <RiEdit2Line className="w-6 h-6 text-secondary-600" />
                     </Link>
                   </div>
@@ -69,4 +69,4 @@ export const  ProductListTable =({ products })=> {
       </table>
     </div>
   );
-}
+};

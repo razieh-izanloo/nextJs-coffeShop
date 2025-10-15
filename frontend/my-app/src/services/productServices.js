@@ -15,7 +15,7 @@ export function getProducts(qs, cookies) {
 }
 
 export function getOnProductBySlug(slug) {
-  return http.get(`/product/slug/${slug}`).then(({ data }) => data.data);
+  return http.get(`/product/${slug}`).then(({ data }) => data.data);
 
   // return fetch(`${process.env.NEXT_PUBLIC_API_URL}/product/list?${qs}`, {cache: "no-store"})
   //   .then((res) => res.json())
@@ -37,7 +37,6 @@ export function removeProduct(id) {
 }
 
 export function updateProduct({ productId, data }) {
-  console.log({ data });
   return http
     .patch(`/admin/product/update/${productId}`, data)
     .then(({ data }) => data.data);
