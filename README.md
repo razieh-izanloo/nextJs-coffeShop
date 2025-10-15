@@ -18,11 +18,3 @@ This project frontend is built with **Next.js 15** and **Tailwind CSS 4**.
    cd my-app
    npm i
    npm run dev
-
-
-complete-profile page
-
-<img width="281" height="499" alt="image" src="https://github.com/user-attachments/assets/37976c05-1cad-4d6f-bf3d-ce74ca38804d" />
-
-
-   
