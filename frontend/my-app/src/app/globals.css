@@ -12,6 +12,8 @@
   --color-chocolate-500: #985122;
   --color-chocolate-600: #58402e;
   --color-chocolate-700: #3e2413;
+
+  --color-secondary-200: #7a7c94;
 }
 
 @layer components {
@@ -45,25 +47,23 @@
 } */
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-Regular.woff2") format("woff2"),
-    url("/fonts/Montserrat/Montserrat-Regular.woff") format("woff");
+  font-family: "vazir";
+  src: url("/fonts/vazir/Vazirmatn-Regular.woff2") format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Montserrat";
-  src: url("/fonts/Montserrat/Montserrat-Bold.woff2") format("woff2"),
-    url("/fonts/Montserrat/Montserrat-Bold.woff") format("woff");
+  font-family: "vazir";
+  src: url("/fonts/vazir/Vazirmatn-Bold") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
 }
 
 body {
-  font-family: "Montserrat", sans-serif;
+  font-family: "vazir", sans-serif;
   background: var(--background);
   color: var(--foreground);
 }
