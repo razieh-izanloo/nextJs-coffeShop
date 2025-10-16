@@ -14,6 +14,7 @@
   --color-chocolate-700: #3e2413;
 
   --color-secondary-200: #7a7c94;
+  --color-modal: rgba(0, 0, 0, 0.5);
 }
 
 @layer components {

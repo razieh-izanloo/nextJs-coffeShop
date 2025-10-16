@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useGetUser } from "@/hooks/useAuth";
 import Image from "next/image";
+import { useRef, useState } from "react";
 
 export const Header = () => {
   const { data, isLoading } = useGetUser();
@@ -32,35 +33,140 @@ export const Header = () => {
     },
   ];
 
+  const [isOpen, setIsOpen] = useState(false);
+  const isMobile = true;
+  const ref = useRef();
   return (
-    <header
-      className={`flex justify-between items-center sticky top-0 backdrop-blur-2xl h-14 text-[17px] font-normal text-secondary-200 ${
-        isLoading ? "blur-sm opacity-70" : ""
-      }`}
+    <>
+    <div
+      className={isOpen ? "h-screen w-full bg-modal absolute top-0" : ""}
+      onClick={(e) => {
+        console.log(
+          "clicke",
+          e.target,
+          ref.current,
+          ref.current.contains(e.target)
+        );
+        if (!ref.current.contains(e.target)) {
+          setIsOpen(false);
+        }
+      }}
     >
-      <nav className="flex gap-6">
-        {navItems.map((item) => (
-          <Link
-            href={item.link}
-            key={item.label}
-            className="flex gap-x-1 items-center"
-          >
-            <Image src={item.icon} alt={item.label} width="18" height="18" />
-            <span>{item.label}</span>
-          </Link>
-        ))}
-      </nav>
-      <div className="flex items-center gap-x-1">
-        <Link href="/cart" className="relative">
-          <Image src="/images/icons/buy.svg" alt="buy" width="25" height="25" />
-          {cart && (
-            <span className="absolute top-0 right-[-7] text-white text-[9px] bg-red-500 rounded-full w-5 h-5 flex justify-center items-center">
-              {cart.payDetail.productIds.length}
-             </span>
-          )}
-        </Link>
-        {data ? <Link href="/profile">{user.name}</Link> : "ورود"}
       </div>
-    </header>
+      <header
+        className={`flex items-start justify-between lg:items-center fixed top-0 backdrop-blur-2xl h-14 text-[17px] font-normal text-secondary-200 w-full lg:px-4  pt-0.5 lg:pt-2 ${
+          isLoading ? "blur-sm opacity-70" : ""
+        }`}
+      >
+        <div className="lg:flex lg:items-center lg:gap-x-2" ref={ref}>
+          <div className="flex gap-x-3">
+            <button
+              className="lg:hidden"
+              disabled={isOpen}
+              onClick={() => setIsOpen(true)}
+              type="button"
+            >
+              <Image
+                src="/images/icons/menu.svg"
+                width="28"
+                height="28"
+                alt="menu"
+                className="cursor-pointer"
+              />
+            </button>
+            <Link href="/">
+              {isMobile ? (
+                <Image
+                  src="/images/logo.png"
+                  className="mt-2"
+                  width="35"
+                  height="35"
+                  alt="logo"
+                />
+              ) : (
+                <Image
+                  src="/images/logo-text.png"
+                  className=" mt-2 lg:mt-0"
+                  width="117"
+                  height="34"
+                  alt="logo"
+                />
+              )}
+            </Link>
+          </div>
+          <div
+            className={
+              isOpen
+                ? "absolute top-0 shadow-2xl h-screen px-3 bg-white py-4 min-w-2xs z-1 opacity-100 transition-opacity ease-in-out delay-300"
+                : "opacity-0 lg:opacity-100 lg:static lg:flex gap-x-3 lg:shadow-none lg:h-fit lg:px-0"
+            }
+          >
+            <div className="border-b-1 border-b-[#c9c9ce] lg:hidden pb-1">
+              <div className="flex items-center justify-between">
+                <Link href="/">
+                  <Image
+                    src="/images/logo-text.png"
+                    className="mt-2 lg:mt-0"
+                    width="117"
+                    height="34"
+                    alt="logo"
+                  />
+                </Link>
+                <button
+                  type="button"
+                  onClick={() => setIsOpen(false)}
+                  className="text-secondary-200 text-[14px] cursor-pointer"
+                >
+                  X
+                </button>
+              </div>
+            </div>
+            <nav className="flex flex-col gap-3 lg:gap-x-6  lg:flex-row py-5 lg:py-0">
+              {navItems.map((item) => (
+                <Link
+                  href={item.link}
+                  key={item.label}
+                  className="flex gap-x-1 items-center"
+                >
+                  <Image
+                    src={item.icon}
+                    alt={item.label}
+                    width="15"
+                    height="15"
+                  />
+                  <span>{item.label}</span>
+                </Link>
+              ))}
+            </nav>
+          </div>
+        </div>
+        <div className="flex items-center gap-x-1">
+          <Link href="/cart" className="relative">
+            <Image
+              src="/images/icons/buy.svg"
+              alt="buy"
+              width="25"
+              height="25"
+            />
+            {cart && (
+              <span className="absolute top-1 right-[-8] text-white text-[9px] bg-red-500 rounded-full w-5 h-5 flex justify-center items-center">
+                {cart.payDetail.productIds.length}
+              </span>
+            )}
+          </Link>
+          {data ? (
+            <Link
+              href="/profile"
+              className="text-ellipsis max-w-16 overflow-hidden text-nowrap"
+            >
+              {user.name}
+            </Link>
+          ) : (
+            "ورود"
+          )}
+        </div>
+      </header>
+    {/* </div> */}
+    </>
   );
 };
