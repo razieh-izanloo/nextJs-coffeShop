@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { ProductForm } from "@/components/productForm";
 import { useGetCategories } from "@/hooks/admin/useCategories";
-import { useGetProductById, useUpdateProduct } from "@/hooks/admin/useProducts";
+import { useGetProductById, useUpdateProduct } from "@/hooks/useProducts";
 
 const includesProductKey = [
   "title",

@@ -4,7 +4,7 @@ import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import { useGetOneCoupon, useUpdateCoupon } from "@/hooks/admin/useCoupons";
-import { useGetProducts } from "@/hooks/admin/useProducts";
+import { useGetProducts } from "@/hooks/useProducts";
 import { CouponForm } from "@/components/couponForm";
 
 function EditCouponPage() {

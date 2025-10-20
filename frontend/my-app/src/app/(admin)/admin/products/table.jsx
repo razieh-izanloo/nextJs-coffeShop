@@ -3,9 +3,8 @@ import Link from "next/link";
 import { RiEdit2Line } from "react-icons/ri";
 import { HiEye, HiTrash } from "react-icons/hi";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/navigation";
 import { useQueryClient } from "@tanstack/react-query";
-import { useRemoveProduct } from "@/hooks/admin/useProducts";
+import { useRemoveProduct } from "@/hooks/useProducts";
 
 export const  ProductListTable =({ products })=> {
   const { mutateAsync } = useRemoveProduct();

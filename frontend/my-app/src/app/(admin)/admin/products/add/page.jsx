@@ -5,7 +5,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-hot-toast";
 import { ProductForm } from "@/components/productForm";
 import { useGetCategories } from "@/hooks/admin/useCategories";
-import { useAddProduct } from "@/hooks/admin/useProducts";
+import { useAddProduct } from "@/hooks/useProducts";
 
 export const addProductPage = () => {
   const { isLoading, mutateAsync } = useAddProduct();

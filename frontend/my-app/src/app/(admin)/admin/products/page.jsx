@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { HiPlusCircle } from "react-icons/hi";
-import { useGetProducts } from "@/hooks/admin/useProducts";
+import { useGetProducts } from "@/hooks/useProducts";
 import { ProductListTable } from "./table";
 
 const ProductsPage = () => {

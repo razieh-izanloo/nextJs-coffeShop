@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetProductById } from "@/hooks/admin/useProducts";
+import { useGetProductById } from "@/hooks/useProducts";
 import { useParams } from "next/navigation";
 
 const DetailProductPage = () => {

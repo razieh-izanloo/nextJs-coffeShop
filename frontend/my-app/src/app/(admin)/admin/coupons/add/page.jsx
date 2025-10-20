@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { toast } from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { useGetProducts } from "@/hooks/admin/useProducts";
+import { useGetProducts } from "@/hooks/useProducts";
 import { useAddNewCoupon } from "@/hooks/admin/useCoupons";
 import {CouponForm} from "@/components/couponForm";
 
