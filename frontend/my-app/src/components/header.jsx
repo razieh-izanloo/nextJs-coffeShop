@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useGetUser } from "@/hooks/useAuth";
 import Image from "next/image";
 import { useRef, useState } from "react";
+import { useIsVisible } from "../hooks/useIsVisible";
 
 export const Header = () => {
   const { data, isLoading } = useGetUser();
@@ -34,27 +35,27 @@ export const Header = () => {
   ];
 
   const [isOpen, setIsOpen] = useState(false);
-  const isMobile = true;
+  const isMobile = useIsVisible(1024);
   const ref = useRef();
+
   return (
     <>
-    <div
-      className={isOpen ? "h-screen w-full bg-modal absolute top-0" : ""}
-      onClick={(e) => {
-        console.log(
-          "clicke",
-          e.target,
-          ref.current,
-          ref.current.contains(e.target)
-        );
-        if (!ref.current.contains(e.target)) {
-          setIsOpen(false);
-        }
-      }}
-    >
-      </div>
+      <div
+        className={isOpen ? "h-screen w-full bg-modal absolute top-0" : ""}
+        onClick={(e) => {
+          console.log(
+            "clicke",
+            e.target,
+            ref.current,
+            ref.current.contains(e.target)
+          );
+          if (!ref.current.contains(e.target)) {
+            setIsOpen(false);
+          }
+        }}
+      ></div>
       <header
-        className={`flex items-start justify-between lg:items-center fixed top-0 backdrop-blur-2xl h-14 text-[17px] font-normal text-secondary-200 w-full lg:px-4  pt-0.5 lg:pt-2 ${
+        className={`flex items-start justify-between lg:items-center fixed top-0 backdrop-blur-2xl h-14 text-[17px] md:text-[20px] font-normal text-secondary-200 w-full lg:px-4  pt-0.5 lg:pt-2 ${
           isLoading ? "blur-sm opacity-70" : ""
         }`}
       >
@@ -166,7 +167,6 @@ export const Header = () => {
           )}
         </div>
       </header>
-    {/* </div> */}
     </>
   );
 };
