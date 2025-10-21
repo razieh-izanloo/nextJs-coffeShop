@@ -12,7 +12,7 @@ export const Features = () => {
   ];
 
   return (
-    <div className="flex justify-start sm:justify-between items-center flex-wrap container-xl gap-3">
+    <div className="flex justify-start sm:justify-between items-center flex-wrap container-xl gap-3 w-full container-xl">
       {items.map((item) => (
         <Link key={item.title} href={item.url} className="text-center">
           <div className="bg-[#6c86fd] flex justify-center w-20 h-20 rounded-4xl mb-2 hover:bg-[#90acd2]">
