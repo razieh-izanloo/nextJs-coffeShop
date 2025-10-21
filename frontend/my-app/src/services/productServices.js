@@ -26,14 +26,15 @@ export function likeProduct(id) {
   return http.post(`/product/like/${id}`).then(({ data }) => data.data);
 }
 
-
 //admin
 export function addProdcut(data) {
   return http.post(`/admin/product/add`, data).then(({ data }) => data.data);
 }
 
 export function removeProduct(id) {
-  return http.delete(`/admin/product/remove/${id}`).then(({ data }) => data.data);
+  return http
+    .delete(`/admin/product/remove/${id}`)
+    .then(({ data }) => data.data);
 }
 
 export function updateProduct({ productId, data }) {

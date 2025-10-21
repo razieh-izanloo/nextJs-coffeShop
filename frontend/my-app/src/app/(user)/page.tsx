@@ -4,7 +4,7 @@ import { LatestProducts } from "@/components/latestProducts";
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-8 pb-20 grid gap-5 justify-center">
+    <div className="min-h-screen p-8 pb-20 grid gap-10 justify-center">
       <BannerHome />
       <Features />
       <LatestProducts/>

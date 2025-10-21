@@ -34,6 +34,9 @@
   .input-textField {
     @apply py-3 px-1.5 rounded-[6px] w-full border border-chocolate-300 bg-chocolate-50 outline-0;
   }
+  .text-truncate {
+    @apply text-ellipsis overflow-hidden text-nowrap;
+  }
 }
 
 :root {
@@ -81,6 +84,12 @@ input::-webkit-inner-spin-button {
 }
 .mask-image {
   mask-image: linear-gradient(1deg, rgba(255, 255, 255, 0) 1%, #f4f5f7 18%);
+}
+.scroll-swipe {
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  user-select: none;
 }
 
 /* Firefox */

@@ -4,7 +4,7 @@ import Link from "next/link";
 export const Features = () => {
   const items = [
     { title: "آموزش رایگان", icon: "pc", url: "/amoozesh" },
-    { title: "نمایندگان", icon: "group-pepole", url: "/namayanedegan" },
+    { title: "نحوه خرید", icon: "group-pepole", url: "/namayanedegan" },
 
     { title: "نرم افرارها", icon: "apps", url: "/apps" },
     { title: "گارانتی", icon: "warranty", url: "/warranty" },

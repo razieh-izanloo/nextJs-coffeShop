@@ -43,12 +43,6 @@ export const Header = () => {
       <div
         className={isOpen ? "h-screen w-full bg-modal absolute top-0" : ""}
         onClick={(e) => {
-          console.log(
-            "clicke",
-            e.target,
-            ref.current,
-            ref.current.contains(e.target)
-          );
           if (!ref.current.contains(e.target)) {
             setIsOpen(false);
           }
@@ -159,7 +153,7 @@ export const Header = () => {
             {data ? (
               <Link
                 href="/profile"
-                className="text-ellipsis max-w-16 overflow-hidden text-nowrap"
+                className="text-truncate max-w-16"
               >
                 {user.name}
               </Link>
