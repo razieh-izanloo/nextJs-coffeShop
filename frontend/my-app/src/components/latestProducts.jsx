@@ -39,11 +39,11 @@ export const LatestProducts = () => {
   if (!data) return null;
 
   return (
-    <div className="container-xl my-6">
+    <div className="container-xl my-6 w-full">
       <strong className="block text-3xl text-secondary-900 mb-6">
         جدیدترین ها
       </strong>
-      <div className="overflow-x-auto scroll-swipe" ref={ref}>
+      <div className="overflow-x-auto scroll-swipe max-w-screen" ref={ref}>
         <div className="flex gap-2 py-4 min-w-max">
           {data?.products.map((item) => (
             <div
