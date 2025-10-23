@@ -14,9 +14,11 @@ export const dynamic = "force-static"; //SSG or {cache: 'force-cache'}
 export async function generateStaticParams() {
   const { products } = await getProducts();
 
-  return products.map((product) => ({
-    slug: product.slug,
+  const test =  products.map((product) => ({
+    slug: product._id,
   }));
+  console.log(test);
+  return test
 }
 
 const ProductDetailPage = async ({ params }) => {
