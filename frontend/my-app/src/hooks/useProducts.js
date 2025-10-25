@@ -11,7 +11,8 @@ export const useGetProducts = (qs, cookies) =>
   useQuery({
     queryKey: ["get-products", qs],
     queryFn: ({ queryKey }) => {
-      const [_key, query] = queryKey;
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+      const [_, query] = queryKey;
       return getProducts(query, cookies);
     },
     retry: false,

@@ -1,8 +1,8 @@
 "use client";
 import {ProductForm} from "../_components/form";
-import { useGetCategories } from "@/hooks/useCategories";
+import { useGetCategories } from "@/hooks/admin/useCategories";
 import { useGetProductById, useUpdateProduct } from "@/hooks/useProducts";
-import { includeObj } from "@/utils/objectUtils";
+// import { includeObj } from "@/utils/objectUtils";
 import { useParams, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
@@ -57,7 +57,7 @@ const EditPage = () =>{
     if (product) {
       setTags(product.tags);
       setSelectedCategory(product.category);
-      setFormData(includeObj(product, includesProductKey));
+      // setFormData(includeObj(product, includesProductKey));
     }
   }, [data]);
 

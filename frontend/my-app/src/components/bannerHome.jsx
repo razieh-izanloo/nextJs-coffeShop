@@ -17,6 +17,8 @@ export const BannerHome = () => {
         className="-z-10"
         fill
         alt="banner"
+        priority
+        quality={80}
       />
       <div className="col-span-1 text-center sm:text-right">
         <h1 className="md:text-[55px] text-secondary-900 sm:font-black">

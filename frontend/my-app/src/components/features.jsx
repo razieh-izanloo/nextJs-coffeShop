@@ -21,6 +21,7 @@ export const Features = () => {
               alt={item.title}
               width="40"
               height="40"
+              loading="lazy"
             />
           </div>
           <h3 className="font-bold">{item.title}</h3>
