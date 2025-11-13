@@ -61,7 +61,7 @@
 
 @font-face {
   font-family: "vazir";
-  src: url("/fonts/vazir/Vazirmatn-Bold") format("woff2");
+  src: url("/fonts/vazir/Vazirmatn-Bold.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: swap;
