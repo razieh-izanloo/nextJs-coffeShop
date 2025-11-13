@@ -1,0 +1,25 @@
+@font-face {
+  font-family: "vazir";
+  src: url("/fonts/vazir/Vazirmatn-Regular.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+body {
+  background-color: #f4f5f7;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: "vazir";
+}
+h1 {
+  color: #2a2d53;
+}
+img {
+  width: 239px;
+  height: 73px;
+}
