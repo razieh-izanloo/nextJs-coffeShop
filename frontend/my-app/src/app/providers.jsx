@@ -6,6 +6,18 @@ import { useEffect } from "react";
 const queryClient = new QueryClient();
 
 export default function Providers({ children }) {
+  useEffect(() => {
+    
+    async function registerSW() {
+      await navigator.serviceWorker.register("/sw.js", {
+        scope: "/",
+        updateViaCache: "none",
+      });
+    }
+
+    if ("serviceWorker" in navigator) registerSW();
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       {/* <ReactQueryDevtools initialIsOpen={false} /> */}
