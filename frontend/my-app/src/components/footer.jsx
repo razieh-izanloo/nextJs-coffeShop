@@ -50,7 +50,7 @@ export const Footer = () => {
       <div className="mx-auto w-full p-4 py-6 lg:py-8 container-xl">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
-            <Link href="https://flowbite.com/" className="flex items-center">
+            <Link href="/" className="flex items-center">
               <Image
                 src="/images/logo-text.png"
                 className="h-8 me-3"

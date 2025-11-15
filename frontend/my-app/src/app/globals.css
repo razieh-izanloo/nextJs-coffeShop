@@ -5,14 +5,6 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-  --color-chocolate-50: #f7e2c3;
-  --color-chocolate-100: #f0d9b4;
-  --color-chocolate-200: #f5e1be;
-  --color-chocolate-300: #b9825e;
-  --color-chocolate-500: #985122;
-  --color-chocolate-600: #58402e;
-  --color-chocolate-700: #3e2413;
-
   --color-secondary-200: #7a7c94;
   --color-secondary-900: #2a2d53;
   --color-modal: rgba(0, 0, 0, 0.5);
@@ -22,17 +14,11 @@
   .btn {
     @apply p-2.5 rounded-[6px] block cursor-pointer;
   }
-  .btn-chocolate-500 {
-    @apply bg-chocolate-500 text-white;
-  }
-  .btn-chocolate-500:hover {
-    @apply bg-chocolate-300;
-  }
   h1 {
     @apply text-4xl font-bold my-2.5;
   }
   .input-textField {
-    @apply py-3 px-1.5 rounded-[6px] w-full border border-chocolate-300 bg-chocolate-50 outline-0;
+    @apply py-3 px-1.5 rounded-[6px] w-full border outline-0;
   }
   .text-truncate {
     @apply text-ellipsis overflow-hidden text-nowrap;
@@ -44,12 +30,6 @@
   --foreground: #171717;
 }
 
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-} */
 
 @font-face {
   font-family: "vazir";
