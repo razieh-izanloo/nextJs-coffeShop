@@ -1,13 +1,17 @@
 import { BannerHome } from "@/components/bannerHome";
 import { Features } from "@/components/features";
 import { LatestProducts } from "@/components/latestProducts";
+import { BannerGetComapny } from "@/components/bannerGetCompany";
 
 export default function Home() {
   return (
-    <div className="min-h-screen p-8 pb-20 flex flex-col gap-10 items-center">
-      <BannerHome />
-      <Features />
-      <LatestProducts/>
+    <div className="flex flex-col gap-10 items-center">
+      <div className="p-8 pb-20">
+        <BannerHome />
+        <Features />
+        <LatestProducts />
+      </div>
+      <BannerGetComapny />
     </div>
   );
 }
